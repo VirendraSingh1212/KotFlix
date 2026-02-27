@@ -111,8 +111,12 @@ export const getMovieGenres = () => fetchFromTMDB('/genre/movie/list', null);
 export const getMoviesByGenre = (genreId) => fetchFromTMDB(`/discover/movie?with_genres=${genreId}`, 'popular');
 
 export const getImageUrl = (path, size = IMAGE_SIZES.large) => {
-  if (!path) return 'https://via.placeholder.com/300x450?text=No+Image';
-  return `${IMAGE_BASE_URL}/${size}${path}`;
+  if (!path || path === 'null' || path === 'undefined') {
+    return null;
+  }
+  // Ensure path starts with /
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${IMAGE_BASE_URL}/${size}${cleanPath}`;
 };
 
 export const getMovieDetails = (movieId) => fetchFromTMDB(`/movie/${movieId}`, null);

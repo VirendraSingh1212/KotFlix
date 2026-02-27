@@ -63,10 +63,15 @@ function App() {
     );
   }
 
+  // Get a random movie from trending for the hero section
+  const heroMovie = movies.trending.length > 0 
+    ? movies.trending[Math.floor(Math.random() * Math.min(5, movies.trending.length))]
+    : null;
+
   return (
     <div className="app">
       <Navbar />
-      <Hero />
+      <Hero movie={heroMovie} />
       <div className="app__content">
         <MovieRow title="Trending Now" movies={movies.trending} />
         <MovieRow title="Popular on KotFlix" movies={movies.popular} />

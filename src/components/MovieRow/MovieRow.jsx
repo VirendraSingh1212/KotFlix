@@ -32,22 +32,27 @@ const MovieRow = ({ title, movies }) => {
           ‹
         </button>
         <div className="movieRow__posters" ref={rowRef}>
-          {movies.map((movie) => (
-            <div key={movie.id} className="movieRow__poster">
-              <img
-                src={getImageUrl(movie.poster_path, 'w300')}
-                alt={movie.title}
-                loading="lazy"
-                onError={(e) => {
-                  e.target.src = `https://placehold.co/200x300/222/fff?text=${encodeURIComponent(movie.title)}`;
-                }}
-              />
-              <div className="movieRow__posterInfo">
-                <h3>{movie.title}</h3>
-                <p>{movie.vote_average?.toFixed(1)} ⭐</p>
+          {movies.map((movie) => {
+            const imageUrl = getImageUrl(movie.poster_path, 'w300');
+            const fallbackUrl = `https://placehold.co/200x300/222/fff?text=${encodeURIComponent(movie.title)}`;
+            
+            return (
+              <div key={movie.id} className="movieRow__poster">
+                <img
+                  src={imageUrl || fallbackUrl}
+                  alt={movie.title}
+                  loading="lazy"
+                  onError={(e) => {
+                    e.target.src = fallbackUrl;
+                  }}
+                />
+                <div className="movieRow__posterInfo">
+                  <h3>{movie.title}</h3>
+                  <p>{movie.vote_average?.toFixed(1)} ⭐</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <button 
           className="movieRow__arrow movieRow__arrow--right"
