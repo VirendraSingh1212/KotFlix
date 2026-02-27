@@ -64,9 +64,15 @@ const mockData = {
 };
 
 const fetchFromTMDB = async (endpoint, mockDataKey) => {
+  // Skip API call if no API key is configured, use mock data immediately
+  if (!API_KEY || API_KEY === 'your_tmdb_api_key_here') {
+    console.log(`Using mock data for ${endpoint} (no API key configured)`);
+    return { results: mockData[mockDataKey] || [] };
+  }
+  
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    const timeoutId = setTimeout(() => controller.abort(), 3000); // Reduced to 3 seconds
     
     const response = await fetch(`${BASE_URL}${endpoint}?api_key=${API_KEY}`, {
       signal: controller.signal,

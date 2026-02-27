@@ -19,55 +19,45 @@ function App() {
     nowPlaying: [],
     upcoming: []
   });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [initialLoading, setInitialLoading] = useState(true);
 
   useEffect(() => {
-    const fetchAllMovies = async () => {
-      try {
-        setLoading(true);
-        const [trending, popular, topRated, nowPlaying, upcoming] = await Promise.all([
-          getTrendingMovies(),
-          getPopularMovies(),
-          getTopRatedMovies(),
-          getNowPlayingMovies(),
-          getUpcomingMovies()
-        ]);
+    // Load trending first for hero, then others
+    const loadMovies = async () => {
+      // Load trending first (for hero) - max 1.5 seconds
+      const trendingPromise = getTrendingMovies();
+      const trendingTimeout = new Promise(resolve => setTimeout(() => resolve({ results: [] }), 1500));
+      const trending = await Promise.race([trendingPromise, trendingTimeout]);
+      
+      setMovies(prev => ({ ...prev, trending: trending.results || [] }));
+      setInitialLoading(false);
+      
+      // Load other categories in background
+      const [popular, topRated, nowPlaying, upcoming] = await Promise.all([
+        getPopularMovies(),
+        getTopRatedMovies(),
+        getNowPlayingMovies(),
+        getUpcomingMovies()
+      ]);
 
-        setMovies({
-          trending: trending.results || [],
-          popular: popular.results || [],
-          topRated: topRated.results || [],
-          nowPlaying: nowPlaying.results || [],
-          upcoming: upcoming.results || []
-        });
-      } catch (err) {
-        console.error('Error fetching movies:', err);
-        // Don't set error - the API service returns mock data on failure
-      } finally {
-        setLoading(false);
-      }
+      setMovies({
+        trending: trending.results || [],
+        popular: popular.results || [],
+        topRated: topRated.results || [],
+        nowPlaying: nowPlaying.results || [],
+        upcoming: upcoming.results || []
+      });
     };
 
-    fetchAllMovies();
+    loadMovies();
   }, []);
 
-  if (loading) {
+  if (initialLoading) {
     return (
       <div className="app">
         <div className="loading">
           <div className="loading__spinner"></div>
           <p>Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="app">
-        <div className="error">
-          <p>{error}</p>
         </div>
       </div>
     );
