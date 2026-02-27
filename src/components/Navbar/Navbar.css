@@ -1,0 +1,82 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+  z-index: 1000;
+  transition: background-color 0.4s ease;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, transparent);
+}
+
+.navbar--scrolled {
+  background-color: #141414;
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar__logo {
+  color: #e50914;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  cursor: pointer;
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar__links a {
+  color: #e5e5e5;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.navbar__links a:hover,
+.navbar__links a.active {
+  color: #fff;
+  font-weight: 500;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar__icon {
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.navbar__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.navbar__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+  }
+}
