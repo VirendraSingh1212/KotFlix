@@ -10,6 +10,7 @@ export const IMAGE_SIZES = {
 };
 
 // Different mock data for each category to show variety when API fails
+// Using valid TMDB poster paths
 const mockData = {
   trending: [
     { id: 101, title: "Deadpool & Wolverine", poster_path: "/8cdWjvZQUExUUTzyp4t6ESMHiMF.jpg", backdrop_path: "/yDHYTfA3R0jFYba16jBB1ef8oIt.jpg", vote_average: 7.8, overview: "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him." },
@@ -42,24 +43,24 @@ const mockData = {
     { id: 308, title: "Pulp Fiction", poster_path: "/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg", backdrop_path: "/suaEOtk1N1sgg2jM0F1Q0eOvZl1.jpg", vote_average: 8.5, overview: "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer." }
   ],
   nowPlaying: [
-    { id: 401, title: "Despicable Me 4", poster_path: "/wWba3TaojhG7S70oWB5R8bK.jpg", backdrop_path: "/lgkPzcOSnTvjeMnuFziruG.jpg", vote_average: 7.2, overview: "Gru and Lucy and their girls welcome a new member to the Gru family." },
-    { id: 402, title: "A Quiet Place: Day One", poster_path: "/yrpPYKijwM4DqW5e.jpg", backdrop_path: "/qwhnq.jpg", vote_average: 6.9, overview: "As New York City is invaded by alien creatures who hunt by sound, a woman named Sammy fights to survive." },
-    { id: 403, title: "Twisters", poster_path: "/pjnD08FrMDiwBFhNxazZ.jpg", backdrop_path: "/tM1.jpg", vote_average: 7.0, overview: "As storm season intensifies, the paths of former storm chaser Kate Carter and reckless social-media superstar Tyler Owens collide." },
-    { id: 404, title: "Longlegs", poster_path: "/5aj8v.jpg", backdrop_path: "/8fH.jpg", vote_average: 6.8, overview: "FBI Agent Lee Harker is a gifted new recruit assigned to an unsolved serial killer case." },
-    { id: 405, title: "Fly Me to the Moon", poster_path: "/gA.jpg", backdrop_path: "/kU.jpg", vote_average: 6.9, overview: "Sparks fly between a marketing executive and a launch director during the 1969 space race." },
-    { id: 406, title: "Horizon: An American Saga - Chapter 1", poster_path: "/vM.jpg", backdrop_path: "/hY.jpg", vote_average: 6.7, overview: "Follow the story of how the Old West was won and lost through the blood, sweat and tears of many." },
-    { id: 407, title: "MaXXXine", poster_path: "/i77.jpg", backdrop_path: "/pQ.jpg", vote_average: 6.5, overview: "In 1980s Hollywood, adult film star and aspiring actress Maxine Minx finally gets her big break." },
-    { id: 408, title: "The Bikeriders", poster_path: "/qT.jpg", backdrop_path: "/nJ.jpg", vote_average: 6.8, overview: "After a chance encounter, headstrong Kathy is drawn to Benny, member of Midwestern motorcycle club the Vandals." }
+    { id: 401, title: "Inception", poster_path: "/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg", backdrop_path: "/s3TBrRGB1iav7gFOCNx3H31MoES.jpg", vote_average: 8.4, overview: "A thief who steals corporate secrets through the use of dream-sharing technology." },
+    { id: 402, title: "The Dark Knight", poster_path: "/qJ2tW6WMUDux911r6m7haRef0WH.jpg", backdrop_path: "/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg", vote_average: 9.0, overview: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham." },
+    { id: 403, title: "Interstellar", poster_path: "/gEU2QniL6C8z19uVOtYnZ5UYj52.jpg", backdrop_path: "/xJHokMbljvjADYdit5fK5VQsXEG.jpg", vote_average: 8.6, overview: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival." },
+    { id: 404, title: "The Matrix", poster_path: "/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg", backdrop_path: "/ncEsesgOJDNrTUED89h7bN3BxiD.jpg", vote_average: 8.2, overview: "A computer hacker learns from mysterious rebels about the true nature of his reality." },
+    { id: 405, title: "Avengers: Endgame", poster_path: "/or06FN3Dka5tukK1e9sl16pB3iy.jpg", backdrop_path: "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg", vote_average: 8.3, overview: "After the devastating events of Infinity War, the universe is in ruins." },
+    { id: 406, title: "Pulp Fiction", poster_path: "/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg", backdrop_path: "/suaEOtk1N1sgg2jM0F1Q0eOvZl1.jpg", vote_average: 8.5, overview: "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine." },
+    { id: 407, title: "Fight Club", poster_path: "/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg", backdrop_path: "/rr7E0NoGKxvbKB858T2Ta3vSKPB.jpg", vote_average: 8.4, overview: "An insomniac office worker and a devil-may-care soapmaker form an underground fight club." },
+    { id: 408, title: "Forrest Gump", poster_path: "/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg", backdrop_path: "/3h1JZGDhZ8nzxdgVnHWPN0SJUEND.jpg", vote_average: 8.5, overview: "The presidencies of Kennedy and Johnson, the Vietnam War, and other historical events." }
   ],
   upcoming: [
-    { id: 501, title: "Joker: Folie à Deux", poster_path: "/if8.jpg", backdrop_path: "/z1.jpg", vote_average: 0, overview: "Arthur Fleck is institutionalized at Arkham awaiting trial for his crimes as Joker." },
-    { id: 502, title: "Venom: The Last Dance", poster_path: "/a7.jpg", backdrop_path: "/k8.jpg", vote_average: 0, overview: "Eddie and Venom are on the run. Hunted by both of their worlds and with the net closing in." },
-    { id: 503, title: "Gladiator II", poster_path: "/v1.jpg", backdrop_path: "/x2.jpg", vote_average: 0, overview: "Years after witnessing the death of the revered hero Maximus at the hands of his uncle." },
-    { id: 504, title: "Wicked", poster_path: "/2x.jpg", backdrop_path: "/y3.jpg", vote_average: 0, overview: "Elphaba, an ostracized but defiant girl born with green skin, and Glinda, a privileged popular girl." },
-    { id: 505, title: "Moana 2", poster_path: "/4y.jpg", backdrop_path: "/z5.jpg", vote_average: 0, overview: "After receiving an unexpected call from her wayfinding ancestors, Moana journeys to the far seas of Oceania." },
-    { id: 506, title: "Mufasa: The Lion King", poster_path: "/6z.jpg", backdrop_path: "/a7.jpg", vote_average: 0, overview: "Rafiki relays the legend of Mufasa to lion cub Kiara, daughter of Simba and Nala." },
-    { id: 507, title: "Kraven the Hunter", poster_path: "/b8.jpg", backdrop_path: "/c9.jpg", vote_average: 0, overview: "Sergei Kravinoff is a big game hunter who seeks to prove himself as the world's greatest hunter." },
-    { id: 508, title: "Sonic the Hedgehog 3", poster_path: "/d0.jpg", backdrop_path: "/e1.jpg", vote_average: 0, overview: "Sonic, Knuckles, and Tails reunite against a powerful new adversary, Shadow." }
+    { id: 501, title: "The Shawshank Redemption", poster_path: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", backdrop_path: "/kXfqCq3Q7fJk9YHvTG6YV5lJp3j.jpg", vote_average: 8.7, overview: "Two imprisoned men bond over a number of years, finding solace and eventual redemption." },
+    { id: 502, title: "Parasite", poster_path: "/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg", backdrop_path: "/ApiBzeaa95TNYliSbQ8tpJvGAQ.jpg", vote_average: 8.5, overview: "Greed and class discrimination threaten the newly formed symbiotic relationship." },
+    { id: 503, title: "The Godfather", poster_path: "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg", backdrop_path: "/tmU7GeKVybMWFButWEGl2M4GeiP.jpg", vote_average: 8.7, overview: "The aging patriarch of an organized crime dynasty transfers control to his reluctant son." },
+    { id: 504, title: "Dune", poster_path: "/d5NXSklXo0qyIYkgV94XAgMIckC.jpg", backdrop_path: "/jYEW5eZkKyXW9N6r3w7VqLJ1s3Z.jpg", vote_average: 7.9, overview: "Paul Atreides must travel to the most dangerous planet in the universe." },
+    { id: 505, title: "Inception", poster_path: "/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg", backdrop_path: "/s3TBrRGB1iav7gFOCNx3H31MoES.jpg", vote_average: 8.4, overview: "A thief who steals corporate secrets through the use of dream-sharing technology." },
+    { id: 506, title: "The Dark Knight", poster_path: "/qJ2tW6WMUDux911r6m7haRef0WH.jpg", backdrop_path: "/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg", vote_average: 9.0, overview: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham." },
+    { id: 507, title: "Interstellar", poster_path: "/gEU2QniL6C8z19uVOtYnZ5UYj52.jpg", backdrop_path: "/xJHokMbljvjADYdit5fK5VQsXEG.jpg", vote_average: 8.6, overview: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival." },
+    { id: 508, title: "The Matrix", poster_path: "/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg", backdrop_path: "/ncEsesgOJDNrTUED89h7bN3BxiD.jpg", vote_average: 8.2, overview: "A computer hacker learns from mysterious rebels about the true nature of his reality." }
   ]
 };
 
